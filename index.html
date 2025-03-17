@@ -1,0 +1,57 @@
+<!-- PAGINA PRINCIPAL -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa Romântica</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffdde1;
+        }
+        .botao {
+            position: absolute;
+            z-index: 10;
+            padding: 15px 30px;
+            font-size: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #ff4e50;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 24px;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-10vh); }
+            to { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <a href="segunda_pagina.html" class="botao">Clique aqui</a>
+    <script>
+        function criarCoração() {
+            let coracao = document.createElement("div");
+            coracao.innerHTML = "💗";
+            coracao.classList.add("heart");
+            coracao.style.left = Math.random() * 100 + "vw";
+            coracao.style.animationDuration = (Math.random() * 2 + 3) + "s";
+            document.body.appendChild(coracao);
+            setTimeout(() => coracao.remove(), 5000);
+        }
+        setInterval(criarCoração, 300);
+    </script>
+</body>
+</html>

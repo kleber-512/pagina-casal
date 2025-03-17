@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Romântica</title>
+    <style>       
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6f2;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Música */
+        .music-container {
+            margin-bottom: 20px;
+        }
+
+        audio {
+            width: 100%;
+        }
+
+        /* Carrossel de Imagens */
+        .carousel-container {
+            width: 300px;
+            height: 500px; /* Ajuste de altura */
+            overflow: hidden;
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .carousel {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            animation: scroll 15s linear infinite;
+        }
+
+        .carousel img {
+            width: 300px; 
+            height: 500px; 
+            object-fit: cover; /* Mantém o enquadramento certo */
+        }
+
+        @keyframes scroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); }
+        }
+
+        /* Temporizador */
+        #timer {
+            font-size: 19px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        /* Mensagem */
+        .message {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 2px solid #ff66b2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="music-container">
+            <audio controls autoplay>
+                <source src="Eles se Amam - Vocal Livre (Audio Music)(M4A_128K).m4a">
+            </audio>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel">
+                <img src="foto1.jpg" alt="Foto 1">
+                <img src="foto2.jpg" alt="Foto 2">
+                <img src="foto3.jpg" alt="Foto 3">
+                <img src="foto4.jpg" alt="Foto 4">
+                <img src="foto5.jpg" alt="Foto 5">
+                <!-- Duplicação para continuidade do loop -->
+                <img src="foto1.jpg" alt="Foto 1">
+                <img src="foto2.jpg" alt="Foto 2">
+                <img src="foto3.jpg" alt="Foto 3">
+                <img src="foto4.jpg" alt="Foto 4">
+                <img src="foto5.jpg" alt="Foto 5">
+            </div>
+        </div>
+
+        <div id="timer"> </div>
+        
+        <div class="message">
+            <p>A cada dia que passa, meu coração se enche mais de carinho e admiração por você. Cada sorriso seu ilumina o meu mundo, e cada abraço me faz sentir que estou exatamente onde deveria estar. Você é a razão dos meus melhores pensamentos, e tudo ao seu lado se torna mais bonito e significativo. Eu te amo para Sempre 💖</p>
+        </div>
+    </div>
+
+    <script>
+        function startTimer() {
+            const startDate = new Date("2024-01-28T00:00:00"); // Ajuste a data aqui
+            setInterval(() => {
+                const now = new Date();
+                let diff = now - startDate;
+                
+                let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                diff %= (1000 * 60 * 60 * 24 * 365);
+                let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                diff %= (1000 * 60 * 60 * 24);
+                let hours = Math.floor(diff / (1000 * 60 * 60));
+                diff %= (1000 * 60 * 60);
+                let minutes = Math.floor(diff / (1000 * 60));
+                diff %= (1000 * 60);
+                let seconds = Math.floor(diff / 1000);
+                
+                document.getElementById("timer").innerHTML = `O dia em que tive certeza que te amo foi há: 
+                ${years} anos ${days} dias ${hours} horas ${minutes} minutos e ${seconds} segundos`;
+            }, 1000);
+        }
+        
+        startTimer();
+    </script>
+</body>
+</html>
