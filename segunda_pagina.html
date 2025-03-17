@@ -33,12 +33,14 @@
             width: 100%;
         }
 
-        /* Carrossel de Imagens */
+        /* Ajuste do carrossel para responsividade */
         .carousel-container {
-            width: 300px;
-            height: 500px; /* Ajuste de altura */
+            width: 90%; /* Usa uma porcentagem para melhor adaptação */
+            max-width: 350px; /* Define um limite */
+            height: 60vh; /* Altura baseada na tela */
             overflow: hidden;
             position: relative;
+            margin: 0 auto; /* Centraliza */
         }
 
         .carousel {
@@ -48,15 +50,17 @@
             animation: scroll 15s linear infinite;
         }
 
+        /* Ajuste das imagens para não cortarem */
         .carousel img {
-            width: 300px; 
-            height: 500px; 
-            object-fit: cover; /* Mantém o enquadramento certo */
+            width: 100%; 
+            height: 100%;
+            object-fit: cover;
         }
 
+        /* Ajuste da animação para manter fluidez */
         @keyframes scroll {
             0% { transform: translateY(0); }
-            100% { transform: translateY(-100%); }
+            100% { transform: translateY(-50%); } /* Ajusta melhor para looping contínuo */
         }
 
         /* Temporizador */
